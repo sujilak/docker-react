@@ -1,0 +1,12 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before-install:
+  - docker build -t sujila/docker-react -f Dockerfile.dev
+
+script:
+  - docker run -e CI=true sujila/docker-react npm run test
